@@ -1,0 +1,20 @@
+Les définitions les plus simples et les plus cools du siteduzero. 
+
+
+API  : Application Programming Interface
+
+" Nous utilisons beaucoup d'interfaces sans nous en rendre compte. Les sites web et les applications ont besoin de la même chose pour communiquer et échanger des données. C’est là que vient le “AP” d’API : “Application Programming” Interface. 
+Une API est une interface pour les applications, car un logiciel n’a pas de mains ni d’yeux pour interagir avec les interfaces physiques !"
+
+
+Open GL : " OpenGL est une librairie exploitant la carte graphique d'un ordinateur permettant ainsi aux développeurs de programmer des applications 2D et 3D. Cela permet entre autres de développer des jeux-vidéo.  Actuellement, deux API existent pour exploiter notre matériel graphique : DirectX (uniquement utilisable sous Windows) et OpenGL (multi-plateforme). "
+
+
+
+SDL :  La SDL est une librairie graphique. 
+"OpenGL a besoin d'un contexte d'exécution dans lequel travailler, il faut d'abord créer ce contexte avant de pouvoir créer notre monde 3D. De plus, OpenGL ne sait pas gérer les inputs (clavier, souris, ...), il nous faut donc une librairie capable de savoir ce que fait l'utilisateur. Heureusement pour nous, la librairie SDL sait créer un contexte OpenGL et gérer les évènements. En combinant la SDL et OpenGL nous nous retrouvons avec un monde 3D interactif." 
+
+
+
+
+Open Source : " Un logiciel Open Source est un programme informatique dont le code source est distribué sous une licence permettant à quiconque de lire, modifier ou redistribuer ce logiciel." 

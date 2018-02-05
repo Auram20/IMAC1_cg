@@ -1,0 +1,16 @@
+1  - Les instructions #include permettent d'appeller les bibliothèques graphiques que l'on va utiliser. 
+Donc ici dans notre fichier minimal.c on a notre bibliothèque SDL, la bibliothèque openGL et les bibliothèques de base du langage c. 
+
+
+
+2 - #include <SDL/SDL.h>
+#include <GL/gl.h>
+#include <GL/glu.h>
+
+
+3 - Grace au Makefile, qui appelle toutes les lib nécéssaires :') 
+
+4- On constate la création d'une fenetre et de certains évenements ( touche pressée, clic )
+
+5- Set up a video mode with the specified width, height and bits-per-pixel.
+ Permet d'ouvrir une fenetre et de fixer ses paramètres. 
