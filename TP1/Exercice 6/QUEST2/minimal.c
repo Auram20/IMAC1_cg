@@ -34,6 +34,7 @@ void setVideoMode() {
     fprintf(stderr, "Impossible d'ouvrir la fenetre. Fin du programme.\n");
     exit(EXIT_FAILURE);
   }
+    glClear(GL_COLOR_BUFFER_BIT);
   reshape();
 }
 
@@ -53,13 +54,10 @@ int main(int argc, char** argv) {
     }
     
     
-    //SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 0);
+    SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 0);
   
     setVideoMode();
     SDL_WM_SetCaption("Ceci est un Titre", NULL);
-    
-    glClearColor(0, 1, 0, 1);
-    glClear(GL_COLOR_BUFFER_BIT);
     
     
     /* Boucle d'affichage */
@@ -73,15 +71,14 @@ int main(int argc, char** argv) {
         Uint32 startTime = SDL_GetTicks();
         
         
-        //glClear(GL_COLOR_BUFFER_BIT);
-        /*glBegin(GL_LINES);
-        glVertex2f(0, 0);
-        glVertex2f(0, 1);
-        glEnd();*/
+        /* Echange du front et du back buffer : mise à jour de la fenêtre */
+        SDL_GL_SwapBuffers();
         
-
         /* Boucle traitant les evenements */
         SDL_Event e;
+        
+        
+        
         while(SDL_PollEvent(&e)) {
                 
         
@@ -97,18 +94,19 @@ int main(int argc, char** argv) {
                 case SDL_VIDEORESIZE:
                     WINDOW_WIDTH = e.resize.w;
                     WINDOW_HEIGHT=e.resize.h;
-                    //setVideoMode();
+                   setVideoMode();
                     break;
                         
                             
                
                 /* Clic de souris - tracé point */
-                   case SDL_MOUSEBUTTONUP:
-                      glBegin(GL_POINTS);
-                        glColor3ub(255, 0, 0);
-                        glVertex2f(-1 + 2. * e.button.x / WINDOW_WIDTH, - (-1 + 2. * e.button.y / WINDOW_HEIGHT));
-                      glEnd();
-                    break;
+                       case SDL_MOUSEBUTTONUP:
+          glBegin(GL_POINTS);
+            glColor3ub(255, 0, 0);
+            glVertex2f(-1 + 2. * e.button.x / WINDOW_WIDTH, - (-1 + 2. * e.button.y / WINDOW_HEIGHT));
+          glEnd();
+          SDL_GL_SwapBuffers();
+        break;
           
 
                 /* Touche clavier */
@@ -133,7 +131,7 @@ int main(int argc, char** argv) {
             SDL_Delay(FRAMERATE_MILLISECONDS - elapsedTime);
         }
         
-        SDL_GL_SwapBuffers();
+  SDL_GL_SwapBuffers();
     }
 
     /* Liberation des ressources associées à la SDL */ 

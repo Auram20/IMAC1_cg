@@ -53,12 +53,11 @@ int main(int argc, char** argv) {
          glClear(GL_COLOR_BUFFER_BIT);
         
         /* Echange du front et du back buffer : mise à jour de la fenêtre */
-        SDL_GL_SwapBuffers();
+       
         
         /* Boucle traitant les evenements */
         SDL_Event e;
         
-         SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 0);
         
         
         while(SDL_PollEvent(&e)) {
@@ -115,6 +114,8 @@ int main(int argc, char** argv) {
         if(elapsedTime < FRAMERATE_MILLISECONDS) {
             SDL_Delay(FRAMERATE_MILLISECONDS - elapsedTime);
         }
+        
+         SDL_GL_SwapBuffers();
     }
 
     /* Liberation des ressources associées à la SDL */ 
