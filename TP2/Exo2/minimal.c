@@ -1,7 +1,8 @@
+/* minimal.c pour mac */
 
 #include <SDL/SDL.h>
-#include <GL/gl.h>
-#include <GL/glu.h>
+#include <OpenGL/gl.h>
+#include <OpenGL/glu.h>
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -57,7 +58,7 @@ void drawPoints(PointList list){
   glViewport(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
-  gluOrtho2D(-1., 1., -1., 1.);
+  gluOrtho2D(-8, 8., -6., 6.);
 }
 
 /*Fonction qui actualise la fenetre avec redimen*/
@@ -86,9 +87,9 @@ void drawSquare(x,y){
 void drawLandMark(x,y){
      glBegin(GL_LINES);
                         glColor3ub(0, 255, 0);
-                        glVertex2f(0, +0.5);
+                        glVertex2f(0, 1);
                         glVertex2f(0, 0);
-                        glVertex2f(+0.5, 0);
+                        glVertex2f(1, 0);
                         glVertex2f(0, 0);
                       
                       glEnd();
@@ -136,7 +137,10 @@ int main(int argc, char** argv) {
     int loop = 1;
     while(loop) {
                   
-            
+        drawSquare(WINDOW_WIDTH/2,WINDOW_HEIGHT/2);
+        drawLandMark(WINDOW_WIDTH/2,WINDOW_HEIGHT/2);
+        drawCircle();
+                      
         
         /* Récupération du temps au début de la boucle */
         Uint32 startTime = SDL_GetTicks();
@@ -165,14 +169,7 @@ int main(int argc, char** argv) {
                             
                
                     
-                     case SDL_MOUSEBUTTONDOWN:
-                      
-                        drawSquare(WINDOW_WIDTH/2,WINDOW_HEIGHT/2);
-                        drawLandMark(WINDOW_WIDTH/2,WINDOW_HEIGHT/2);
-                        drawCircle();
-                      
-                            
-                    break;
+                    
           
 
                 /* Touche clavier */
